@@ -1,6 +1,6 @@
 ﻿namespace SimpleCalculator
 {
-    public static class Utitlies
+    public static class Utilities
     {
         public static void DisplayMessage(string message)
         {
