@@ -32,6 +32,7 @@
                     break;
                 default:
                     Console.WriteLine("Incorrect Input");
+                    Menu();
                     break;
             }
         }
@@ -115,6 +116,7 @@
                     if (toRemove != null)
                     {
                         _toDos.Remove(id);
+                        Console.WriteLine($"TODO removed: {toRemove.Description}");
                     }
                     else
                     {
@@ -141,7 +143,7 @@
                 }
                 Remove();      // asking for id again
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Unknown error occurred");
                 Remove();      // asking for id again
