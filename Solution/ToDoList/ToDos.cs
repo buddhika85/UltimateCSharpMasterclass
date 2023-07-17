@@ -32,7 +32,19 @@ namespace ToDoList
         }
 
         // remove
+        public void Remove(int id)
+        {
+            var toRemove = Find(id);
+            if (toRemove == null)
+                throw new ArgumentException("The given index is not valid.");
+            ToDoList.Remove(toRemove);
+        }
 
+        // isEmpty
+        public bool IsEmpty()
+        {
+            return !ToDoList.Any();
+        }
 
         public override string ToString()
         {
