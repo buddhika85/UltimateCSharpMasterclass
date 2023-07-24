@@ -2,10 +2,13 @@
 {
     public class ToDoMenu
     {
-        private const char Invalid = 'z';
         private readonly ToDos _toDos = new();
         public ToDoMenu()
         {
+            _toDos.Add("test 1");
+            _toDos.Add("test 2");
+            _toDos.Add("test 3");
+            _toDos.Add("test 4");
             Console.WriteLine("Hello");
             Menu();
         }
@@ -37,15 +40,14 @@
             }
         }
 
-        private char ReadAction()
+        private char? ReadAction()
         {
             Console.WriteLine("\nWhat do you want to do? ");
             Console.WriteLine("[S]ee all TODOs");
             Console.WriteLine("[A]dd a TODO");
             Console.WriteLine("[R]emove a TODO");
             Console.WriteLine("[E]xit");
-            var str = Console.ReadLine();
-            return str == null ? Invalid : str.ToUpper()[0];
+            return Console.ReadLine()?.ToUpper()[0];
         }
 
         private void SeeAll()
@@ -57,25 +59,15 @@
         {
             try
             {
-                Console.WriteLine("Enter the TODO description: ");
-                var description = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(description))
+                var description = ReadDescription();
+                if (IsValidDescription(description))
                 {
-                    if (_toDos.Find(description) != null)
-                    {
-                        Console.WriteLine("The description must be unique.");
-                        Add();      // asking for description again
-                    }
-                    else
-                    {
-                        _toDos.Add(description);
-                        Console.WriteLine($"TODO successfully added: {description}");
-                    }
+                    _toDos.Add(description);    // if here its not null and unique
+                    Console.WriteLine($"TODO successfully added: {description}");
                 }
                 else
                 {
-                    Console.WriteLine("The description cannot be empty.");
-                    Add();      // asking for description again
+                    Add();  // asking for description again
                 }
 
             }
@@ -83,7 +75,7 @@
             {
                 if (string.IsNullOrWhiteSpace(e.Message))
                 {
-                    Console.WriteLine("Unknown error occurred");
+                    DisplayUnknownErrorOccurred();
                 }
                 else
                 {
@@ -93,7 +85,7 @@
             }
             catch (Exception)
             {
-                Console.WriteLine("Unknown error occurred");
+                DisplayUnknownErrorOccurred();
                 Add();      // asking for description again
             }
         }
@@ -108,25 +100,15 @@
                     return;
                 }
 
-                Console.WriteLine("Select the index of the TODO you want to remove: ");
-                var idStr = Console.ReadLine();
-                if (int.TryParse(idStr, out var id))
+
+                if (IsValidIndex(ReadToDoIndex(), out ToDo? toRemove))
                 {
-                    var toRemove = _toDos.Find(id);
-                    if (toRemove != null)
-                    {
-                        _toDos.Remove(id);
-                        Console.WriteLine($"TODO removed: {toRemove.Description}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("The given index is not valid.");
-                        Remove();   // asking for id again
-                    }
+                    _toDos.Remove(toRemove);
+                    Console.WriteLine($"TODO removed: {toRemove?.Description}");
                 }
                 else
                 {
-                    Console.WriteLine("The given index is not valid.");
+                    DisplayIndexInvalid();
                     Remove();   // asking for id again
                 }
 
@@ -135,7 +117,7 @@
             {
                 if (string.IsNullOrWhiteSpace(e.Message))
                 {
-                    Console.WriteLine("Unknown error occurred");
+                    DisplayUnknownErrorOccurred();
                 }
                 else
                 {
@@ -145,7 +127,7 @@
             }
             catch (Exception)
             {
-                Console.WriteLine("Unknown error occurred");
+                DisplayUnknownErrorOccurred();
                 Remove();      // asking for id again
             }
         }
@@ -168,5 +150,61 @@
             var sureOrNot = Console.ReadLine();
             return !string.IsNullOrWhiteSpace(sureOrNot) && sureOrNot.ToUpper()[0] == 'Y';
         }
+
+
+
+        #region helpers
+
+        private bool IsValidIndex(string? idStr, out ToDo? toRemove)
+        {
+            toRemove = null;
+            if (int.TryParse(idStr, out var id))
+            {
+                toRemove = _toDos.Find(id);
+                return toRemove != null;
+            }
+            return false;
+        }
+
+        private string? ReadToDoIndex()
+        {
+            Console.WriteLine("Select the index of the TODO you want to remove: ");
+            SeeAll();
+            return Console.ReadLine();
+        }
+
+        private string? ReadDescription()
+        {
+            Console.WriteLine("Enter the TODO description: ");
+            return Console.ReadLine();
+        }
+
+        private bool IsValidDescription(string? description)
+        {
+            if (!string.IsNullOrWhiteSpace(description))
+            {
+                if (_toDos.Find(description) == null)
+                    return true;
+
+                Console.WriteLine("The description must be unique.");
+                return false;
+
+            }
+
+            Console.WriteLine("The description cannot be empty.");
+            return false;
+        }
+
+        private void DisplayIndexInvalid()
+        {
+            Console.WriteLine("The given index is not valid.");
+        }
+
+        private void DisplayUnknownErrorOccurred()
+        {
+            Console.WriteLine("Unknown error occurred");
+        }
+
+        #endregion helpers
     }
 }

@@ -40,6 +40,13 @@ namespace ToDoList
             ToDoList.Remove(toRemove);
         }
 
+        public void Remove(ToDo? toRemove)
+        {
+            if (toRemove == null)
+                throw new ArgumentException("The given index is not valid.");
+            ToDoList.Remove(toRemove);
+        }
+
         // isEmpty
         public bool IsEmpty()
         {
