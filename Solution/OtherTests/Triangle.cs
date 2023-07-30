@@ -16,9 +16,16 @@
             return (_base * _height) / 2;
         }
 
-        public string AsString()
-        {
-            return $"Base is {_base}, height is {_height}";
-        }
+        //public string AsString()
+        //{
+        //    var str = $"Base is {_base}, height is {_height}";
+        //    return str;
+        //}
+
+        public string AsString() => $"Base is {_base}, height is {_height}";
+
+        public void Display() => Console.WriteLine("Test");
+
     }
+
 }
