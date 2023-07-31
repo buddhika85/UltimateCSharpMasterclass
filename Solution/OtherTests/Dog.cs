@@ -16,22 +16,37 @@
         public Dog(string name, int weight) : this(name, "mixed-breed", weight)
         {
         }
-
         public string Describe()
         {
-            switch (_weight)
+            var desc = "tiny";
+            if (_weight >= 5 && _weight < 30)
             {
-                case < 5:
-                    return
-                        $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a tiny dog.";
-                case >= 30:
-                    return
-                        $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a large dog.";
-                default:
-                    return
-                        $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a medium dog.";
+                desc = "medium";
+            }
+            else if (_weight >= 30)
+            {
+                desc = "large";
             }
 
+            return
+                $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a {desc} dog.";
         }
+
+        //public string Describe()
+        //{
+        //    switch (_weight)
+        //    {
+        //        case < 5:
+        //            return
+        //                $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a tiny dog.";
+        //        case >= 30:
+        //            return
+        //                $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a large dog.";
+        //        default:
+        //            return
+        //                $"This dog is named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a medium dog.";
+        //    }
+
+        //}
     }
 }
