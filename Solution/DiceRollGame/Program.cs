@@ -1,11 +1,13 @@
 ﻿
-// play Dice game
+using DiceRollGame.Game;
 
-using DiceRollGame;
 
+
+const int maxTries = 3;
+const int diceSidesCount = 6;
 do
 {
-    Game game = new();
+    GuessingGame guessingGame = new(maxTries, diceSidesCount);
 } while (Again());
 
 
@@ -17,6 +19,6 @@ bool Again()
 
 char? ReadAgainInput()
 {
-    Console.WriteLine("Again [Y] [N] : ");
+    Console.WriteLine("\nAgain [Y] [N] : ");
     return Console.ReadLine()?[0];
 }
