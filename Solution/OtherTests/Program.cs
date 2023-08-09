@@ -9,4 +9,7 @@
 //new Test();
 
 using OtherTests.InheritanceAndPolymorphism;
-Console.WriteLine($"{string.Join(',', new Exercise().GetCountsOfAnimalsLegs())}");
+//Console.WriteLine($"{string.Join(',', new Exercise().GetCountsOfAnimalsLegs())}");
+
+var list = new List<string> { "bobcat", "wolverine", "grizzly" };
+Console.WriteLine($"{string.Join(',', new Exercise2().ProcessAll(list))}");
