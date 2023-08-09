@@ -1,4 +1,4 @@
-﻿namespace OtherTests
+﻿namespace OtherTests.PartialTests
 {
     public partial class Duck
     {

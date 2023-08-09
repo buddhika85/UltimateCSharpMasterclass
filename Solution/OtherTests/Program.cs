@@ -5,6 +5,8 @@
 //point.MoveUp(4);
 //point.Display();
 
-using OtherTests.InheritanceAndPolymorphism;
 
-new Test();
+//new Test();
+
+using OtherTests.InheritanceAndPolymorphism;
+Console.WriteLine($"{string.Join(',', new Exercise().GetCountsOfAnimalsLegs())}");
