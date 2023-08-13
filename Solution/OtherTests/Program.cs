@@ -1,5 +1,4 @@
-﻿
-//var point = new Point();
+﻿//var point = new Point();
 //point.Display();
 //point.MoveRight(2);
 //point.MoveUp(4);
@@ -8,8 +7,10 @@
 
 //new Test();
 
-using OtherTests.InheritanceAndPolymorphism;
-//Console.WriteLine($"{string.Join(',', new Exercise().GetCountsOfAnimalsLegs())}");
+//using OtherTests.InheritanceAndPolymorphism;
+////Console.WriteLine($"{string.Join(',', new Exercise().GetCountsOfAnimalsLegs())}");
 
-var list = new List<string> { "bobcat", "wolverine", "grizzly" };
-Console.WriteLine($"{string.Join(',', new Exercise2().ProcessAll(list))}");
+//var list = new List<string> { "bobcat", "wolverine", "grizzly" };
+//Console.WriteLine($"{string.Join(',', new Exercise2().ProcessAll(list))}");
+
+new OtherTests.ConstructorsTest.Test();
