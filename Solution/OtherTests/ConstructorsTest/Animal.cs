@@ -46,7 +46,10 @@ namespace OtherTests.ConstructorsTest
         public Test()
         {
             var child = new Dog("Dog", "Labrador Retriever");
-            WriteLine(child.ToString());
+
+            //Child child = null;
+            //if (child is not null)
+            //    WriteLine(child.ToString());
         }
     }
 }
