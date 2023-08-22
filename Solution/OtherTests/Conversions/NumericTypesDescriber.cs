@@ -10,6 +10,7 @@
                 return $"Double of value {someObject}";
             if (someObject is decimal)
                 return $"Decimal of value {someObject}";
+            return null;
         }
     }
 }
