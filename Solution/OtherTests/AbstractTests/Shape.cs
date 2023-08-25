@@ -20,7 +20,6 @@
         }
     }
 
-    //your code goes here - define the Shape class
 
     public class Square : Shape
     {
