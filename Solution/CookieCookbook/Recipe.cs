@@ -2,17 +2,27 @@
 
 public class Recipe
 {
-    private readonly List<Ingredient> _ingredients = new();
+    public List<Ingredient> Ingredients { get; private set; }
+
+    public Recipe()
+    {
+        Ingredients = new List<Ingredient>();
+    }
+
+    public Recipe(List<Ingredient> ingredients)
+    {
+        Ingredients = ingredients;
+    }
 
     public void Add(Ingredient ingredient)
     {
-        _ingredients.Add(ingredient);
+        Ingredients.Add(ingredient);
     }
 
     public override string ToString()
     {
         var str = string.Empty;
-        foreach (var item in _ingredients)
+        foreach (var item in Ingredients)
         {
             str += $"{item.Name}. {item.Instruction}\n";
         }
