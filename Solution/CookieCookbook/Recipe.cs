@@ -19,6 +19,24 @@ public class Recipe
         Ingredients.Add(ingredient);
     }
 
+    public string? GetIngredientIdsCsv()
+    {
+        string? ingredientIds = null;
+        foreach (var ingredient in Ingredients)
+        {
+            if (ingredientIds == null)
+            {
+                ingredientIds += $"{ingredient.Id}";
+            }
+            else
+            {
+                ingredientIds += $",{ingredient.Id}";
+            }
+        }
+
+        return ingredientIds;
+    }
+
     public override string ToString()
     {
         var str = string.Empty;
