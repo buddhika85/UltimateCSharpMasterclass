@@ -34,11 +34,17 @@ public class CookieRecipesApp
                 "No ingredients have been selected. Recipe will not be saved."
                 );
         }
+
+        _recipesUserInteraction.Exit();
     }
 }
 
 public class RecipesUserInteraction
 {
+    public void ShowMessage(string noIngredientsHaveBeenSelectedRecipeWillNotBeSaved)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 public class RecipesRepository
