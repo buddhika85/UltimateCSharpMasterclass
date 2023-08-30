@@ -1,9 +1,18 @@
 ﻿using CookieCookbookModelAnswer.Recipes;
 using CookieCookbookModelAnswer.Recipes.Ingredients;
+using System.Text.Json;
 using static System.Console;
 
-var cookieRecipesApp = new CookieRecipesApp(new RecipesRepository(), new RecipesConsoleUserInteraction(new IngredientRegister()));
-cookieRecipesApp.Run("recipes.txt");
+var ingredientRegister = new IngredientRegister();
+var cookieRecipesApp = new CookieRecipesApp(
+        new RecipesRepository(
+            //new StringsTextualRepository(), 
+            new StringsJsonRepository(),
+            ingredientRegister),
+        new RecipesConsoleUserInteraction(
+            ingredientRegister));
+//cookieRecipesApp.Run("recipes.txt");
+cookieRecipesApp.Run("recipes.json");
 
 public class CookieRecipesApp
 {
@@ -23,21 +32,21 @@ public class CookieRecipesApp
 
         _recipesUserInteraction.PromptToCreateRecipe();
 
-        //var ingredients = _recipesUserInteraction.ReadIngredientsFromUser();
-        //if (ingredients.Count > 0)
-        //{
-        //    var recipe = new Recipe(ingredients);
-        //    allRecipes.Add(recipe);
-        //    _recipesRepository.Write(filePath, allRecipes);
-        //    _recipesUserInteraction.ShowMessage("Recipe added");
-        //    _recipesUserInteraction.ShowMessage(recipe.ToString());
-        //}
-        //else
-        //{
-        //    _recipesUserInteraction.ShowMessage(
-        //        "No ingredients have been selected. Recipe will not be saved."
-        //        );
-        //}
+        var ingredients = _recipesUserInteraction.ReadIngredientsFromUser();
+        if (ingredients.Any())
+        {
+            var recipe = new Recipe(ingredients);
+            allRecipes.Add(recipe);
+            _recipesRepository.Write(filePath, allRecipes);
+            _recipesUserInteraction.ShowMessage("Recipe added");
+            _recipesUserInteraction.ShowMessage(recipe.ToString());
+        }
+        else
+        {
+            _recipesUserInteraction.ShowMessage(
+                "No ingredients have been selected. Recipe will not be saved."
+                );
+        }
 
         _recipesUserInteraction.Exit();
     }
@@ -45,32 +54,62 @@ public class CookieRecipesApp
 
 public interface IRecipesRepository
 {
-    List<Recipe> Read(object filePath);
+    List<Recipe> Read(string filePath);
+    void Write(string filePath, List<Recipe> allRecipes);
 }
 
 public class RecipesRepository : IRecipesRepository
 {
+    private readonly IIngredientRegister _ingredientRegister;
+    private readonly IStringsRepository _stringsRepository;
+    private const char Separator = ',';
 
-
-    public List<Recipe> Read(object filePath)
+    public RecipesRepository(IStringsRepository stringsRepository, IIngredientRegister ingredientRegister)
     {
-        return new List<Recipe>
-        {
-            new(new List<Ingredient>
-            {
-                new WheatFlour(),
-                new Butter(),
-                new Sugar()
-            }),
-            new(new List<Ingredient>
-            {
-                new CocoaPowder(),
-                new CoconutFlour(),
-                new Cinnamon()
-            }),
-        };
+        _stringsRepository = stringsRepository;
+        _ingredientRegister = ingredientRegister;
     }
 
+    public List<Recipe> Read(string filePath)
+    {
+        var recipes = new List<Recipe>();
+        var recipesFromFile = _stringsRepository.Read(filePath);
+        foreach (var recipeStr in recipesFromFile)
+        {
+
+            recipes.Add(RecipeFromString(recipeStr));
+        }
+        return recipes;
+    }
+
+    private Recipe RecipeFromString(string recipeStr)
+    {
+        var allIds = recipeStr.Split(Separator);
+        var ingredients = new List<Ingredient>();
+        foreach (var idStr in allIds)
+        {
+            var ingredient = _ingredientRegister.GetById(int.Parse(idStr));
+            if (ingredient is not null)
+                ingredients.Add(ingredient);
+        }
+
+        return new Recipe(ingredients);
+    }
+
+    public void Write(string filePath, List<Recipe> allRecipes)
+    {
+        var recipesAsStrings = new List<string>();
+        foreach (var recipe in allRecipes)
+        {
+            var allIds = new List<int>();
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                allIds.Add(ingredient.Id);
+            }
+            recipesAsStrings.Add(string.Join(Separator, allIds));
+        }
+        _stringsRepository.Write(filePath, recipesAsStrings);
+    }
 }
 
 public interface IRecipesUserInteraction
@@ -80,13 +119,14 @@ public interface IRecipesUserInteraction
     public void Exit();
 
     void PrintExistingRecipes(IEnumerable<Recipe> allRecipes);
+    IEnumerable<Ingredient> ReadIngredientsFromUser();
 }
 
 public class RecipesConsoleUserInteraction : IRecipesUserInteraction
 {
-    private readonly IngredientRegister _ingredientRegister;
+    private readonly IIngredientRegister _ingredientRegister;
 
-    public RecipesConsoleUserInteraction(IngredientRegister ingredientRegister)
+    public RecipesConsoleUserInteraction(IIngredientRegister ingredientRegister)
     {
         _ingredientRegister = ingredientRegister;
     }
@@ -123,9 +163,38 @@ public class RecipesConsoleUserInteraction : IRecipesUserInteraction
             }
         }
     }
+
+    public IEnumerable<Ingredient> ReadIngredientsFromUser()
+    {
+        var shallStop = false;
+        var ingredients = new List<Ingredient>();
+        while (!shallStop)
+        {
+            WriteLine("\nAdd an ingredient by its ID or type anything else if finished.");
+            var input = ReadLine();
+            if (int.TryParse(input, out var id))
+            {
+                var selected = _ingredientRegister.GetById(id);
+                if (selected is not null)
+                    ingredients.Add(selected);
+            }
+            else
+            {
+                shallStop = true;
+            }
+        }
+
+        return ingredients;
+    }
 }
 
-public class IngredientRegister
+public interface IIngredientRegister
+{
+    public IEnumerable<Ingredient> All { get; }
+    public Ingredient? GetById(int id);
+}
+
+public class IngredientRegister : IIngredientRegister
 {
     public IEnumerable<Ingredient> All { get; } = new List<Ingredient>
     {
@@ -138,5 +207,63 @@ public class IngredientRegister
         new Cinnamon(),
         new CocoaPowder()
     };
+
+    public Ingredient? GetById(int id)
+    {
+        foreach (var ingredient in All)
+        {
+            if (ingredient.Id == id)
+                return ingredient;
+        }
+        return null;
+    }
 }
 
+public interface IStringsRepository
+{
+    public List<string> Read(string filePath);
+    public void Write(string filePath, List<string> strings);
+}
+
+public class StringsTextualRepository : IStringsRepository
+{
+    private static readonly string Separator = Environment.NewLine;
+
+    public List<string> Read(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            var fileContents = File.ReadAllText(filePath);
+            return fileContents.Split(Separator).ToList();
+        }
+
+        return new List<string>();
+    }
+
+    public void Write(string filePath, List<string> strings)
+    {
+        File.WriteAllText(filePath, string.Join(Separator, strings));
+    }
+}
+
+
+public class StringsJsonRepository : IStringsRepository
+{
+    public List<string> Read(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            var fileContents = File.ReadAllText(filePath);
+            var result = JsonSerializer.Deserialize<List<string>>(fileContents);
+            if (result is not null)
+                return result;
+        }
+
+        return new List<string>();
+    }
+
+    public void Write(string filePath, List<string> strings)
+    {
+        File.WriteAllText(filePath, JsonSerializer.Serialize(strings));
+    }
+}
