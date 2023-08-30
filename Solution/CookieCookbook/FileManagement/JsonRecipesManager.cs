@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace CookieCookbook.UserCommunication
+namespace CookieCookbook.FileManagement
 {
     public class JsonRecipesManager : RecipesManager
     {

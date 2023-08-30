@@ -1,4 +1,4 @@
-﻿namespace CookieCookbook.UserCommunication
+﻿namespace CookieCookbook.FileManagement
 {
     public abstract class RecipesManager : IRecipesManager
     {
