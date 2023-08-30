@@ -12,13 +12,11 @@ namespace CookieCookbook
         private Recipes _recipes = null!;
         private readonly string? _recipesPath;
 
-        public CookieCookBookRoot(FileFormat saveFormat)
+        public CookieCookBookRoot(string ingredientsJsonFilePath, string recipeFilePath, FileFormat saveFormat)
         {
             try
             {
-                var ingredientsJsonFilePath = $"D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclass\\Solution\\CookieCookbook\\IngredientsData.json";
-                _recipesPath =
-                    $"D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclass\\Solution\\CookieCookbook\\Recipes{saveFormat.GetFileExtension()}";
+                _recipesPath = $"{recipeFilePath}\\Recipes{saveFormat.GetFileExtension()}";
 
                 IngredientsLoader.LoadIngredients(_ingredients, ingredientsJsonFilePath);
 
@@ -80,7 +78,7 @@ namespace CookieCookbook
 
         private void DisplayIngredients()
         {
-            WriteLine(_ingredients.ToString());
+            WriteLine(_ingredients);
         }
 
 
