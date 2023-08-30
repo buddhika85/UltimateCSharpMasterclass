@@ -228,16 +228,14 @@ public interface IStringsRepository
     public void Write(string filePath, List<string> strings);
 }
 
-public class StringsTextualRepository : IStringsRepository
+public abstract class StringsRepository : IStringsRepository
 {
-    private static readonly string Separator = Environment.NewLine;
-
     public List<string> Read(string filePath)
     {
         if (File.Exists(filePath))
         {
             var fileContents = File.ReadAllText(filePath);
-            return fileContents.Split(Separator).ToList();
+            return TextToStrings(fileContents);
         }
 
         return new List<string>();
@@ -245,29 +243,40 @@ public class StringsTextualRepository : IStringsRepository
 
     public void Write(string filePath, List<string> strings)
     {
-        File.WriteAllText(filePath, string.Join(Separator, strings));
+        File.WriteAllText(filePath, StringsToText(strings));
+    }
+
+    protected abstract string StringsToText(List<string> strings);
+    protected abstract List<string> TextToStrings(string content);
+}
+
+public class StringsTextualRepository : StringsRepository
+{
+    private static readonly string Separator = Environment.NewLine;
+
+    protected override string StringsToText(List<string> strings)
+    {
+        return string.Join(Separator, strings);
+    }
+
+    protected override List<string> TextToStrings(string content)
+    {
+        return content.Split(Separator).ToList();
     }
 }
 
 
-public class StringsJsonRepository : IStringsRepository
+public class StringsJsonRepository : StringsRepository
 {
-    public List<string> Read(string filePath)
+    protected override string StringsToText(List<string> strings)
     {
-        if (File.Exists(filePath))
-        {
-            var fileContents = File.ReadAllText(filePath);
-            var result = JsonSerializer.Deserialize<List<string>>(fileContents);
-            if (result is not null)
-                return result;
-        }
-
-        return new List<string>();
+        return JsonSerializer.Serialize(strings);
     }
 
-    public void Write(string filePath, List<string> strings)
+    protected override List<string> TextToStrings(string content)
     {
-        File.WriteAllText(filePath, JsonSerializer.Serialize(strings));
+        var result = JsonSerializer.Deserialize<List<string>>(content);
+        return result ?? new List<string>();
     }
 }
 
