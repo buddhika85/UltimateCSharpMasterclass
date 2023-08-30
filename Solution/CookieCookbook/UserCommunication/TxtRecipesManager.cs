@@ -6,12 +6,16 @@
         { }
         public override List<string>? ReadRecipes()
         {
-            throw new NotImplementedException();
+            return File.ReadAllLines(RecipesPath).ToList();
         }
 
         public override void WriteRecipes(string ingredientIds)
         {
-            throw new NotImplementedException();
+            var txtStr = string.Empty;
+            if (File.Exists(RecipesPath))
+                txtStr = File.ReadAllText(RecipesPath);
+            txtStr = $"{txtStr}{ingredientIds}{Environment.NewLine}";
+            File.WriteAllText(RecipesPath, txtStr);
         }
     }
 }

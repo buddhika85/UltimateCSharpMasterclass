@@ -16,7 +16,7 @@ namespace CookieCookbook
         {
             try
             {
-                var ingredientsJsonFilePath = $"D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclass\\Solution\\CookieCookbook\\IngredientsData{saveFormat.GetFileExtension()}";
+                var ingredientsJsonFilePath = $"D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclass\\Solution\\CookieCookbook\\IngredientsData.json";
                 _recipesPath =
                     $"D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclass\\Solution\\CookieCookbook\\Recipes{saveFormat.GetFileExtension()}";
 

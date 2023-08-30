@@ -3,4 +3,5 @@ using static System.Console;
 
 WriteLine("Hello, Welcome to Cookie cookbook!");
 
-new CookieCookBookRoot(FileFormat.Json);
+//new CookieCookBookRoot(FileFormat.Json);
+new CookieCookBookRoot(FileFormat.Txt);
