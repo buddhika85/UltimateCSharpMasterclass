@@ -3,16 +3,19 @@ using CookieCookbookModelAnswer.Recipes.Ingredients;
 using System.Text.Json;
 using static System.Console;
 
+const FileFormat format = FileFormat.Json;
+IStringsRepository stringsRepository = format == FileFormat.Json ?
+    new StringsJsonRepository() :
+    new StringsTextualRepository();
+var fileMetaData = new FileMetaData("recipes", format);
 var ingredientRegister = new IngredientRegister();
 var cookieRecipesApp = new CookieRecipesApp(
         new RecipesRepository(
-            //new StringsTextualRepository(), 
-            new StringsJsonRepository(),
+            stringsRepository,
             ingredientRegister),
         new RecipesConsoleUserInteraction(
             ingredientRegister));
-//cookieRecipesApp.Run("recipes.txt");
-cookieRecipesApp.Run("recipes.json");
+cookieRecipesApp.Run(fileMetaData.ToPath());
 
 public class CookieRecipesApp
 {
@@ -266,4 +269,30 @@ public class StringsJsonRepository : IStringsRepository
     {
         File.WriteAllText(filePath, JsonSerializer.Serialize(strings));
     }
+}
+
+public enum FileFormat
+{
+    Json,
+    Txt
+}
+
+public static class FileFormatExtensions
+{
+    public static string AsFileExtension(this FileFormat format) =>
+        format == FileFormat.Json ? "json" : "txt";
+}
+
+public class FileMetaData
+{
+    public string Name { get; }
+    public FileFormat Format { get; }
+
+    public FileMetaData(string name, FileFormat format)
+    {
+        Name = name;
+        Format = format;
+    }
+
+    public string ToPath() => $"{Name}.{Format.AsFileExtension()}";
 }
