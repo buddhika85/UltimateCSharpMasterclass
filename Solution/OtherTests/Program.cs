@@ -1,6 +1,4 @@
-﻿using OtherTests.Extensions;
-using static System.Console;
-
+﻿
 //var point = new Point();
 //point.Display();
 //point.MoveRight(2);
@@ -34,27 +32,40 @@ using static System.Console;
 //    WriteLine($"\tPrev:{season.Previous()}\tNext:{season.Next()}");
 //}
 
-List<(List<int>, List<int>)> data = new()
-{
-    (new List<int> { 1, 5, 10, 8, 12, 4, 5 }, new List<int> { 1, 10, 12, 5 }),
-    (new List<int> { 1, 5, 10, 8, 12, 4, 5, 6 }, new List<int> { 1, 10, 12, 5 }),
-    (new List<int> { 1 }, new List<int> { 1 }),
-    (null, null)
-};
+//List<(List<int>, List<int>)> data = new()
+//{
+//    (new List<int> { 1, 5, 10, 8, 12, 4, 5 }, new List<int> { 1, 10, 12, 5 }),
+//    (new List<int> { 1, 5, 10, 8, 12, 4, 5, 6 }, new List<int> { 1, 10, 12, 5 }),
+//    (new List<int> { 1 }, new List<int> { 1 }),
+//    (null, null)
+//};
 
-foreach (var test in data)
-{
-    try
-    {
-        var result = test.Item1.TakeEverySecond();
-        if (Enumerable.SequenceEqual(result, test.Item2))
-        {
-            WriteLine("Passed");
-        }
-    }
-    catch (Exception e)
-    {
-        WriteLine(e.Message);
+//foreach (var test in data)
+//{
+//    try
+//    {
+//        var result = test.Item1.TakeEverySecond();
+//        if (Enumerable.SequenceEqual(result, test.Item2))
+//        {
+//            WriteLine("Passed");
+//        }
+//    }
+//    catch (Exception e)
+//    {
+//        WriteLine(e.Message);
+//    }
+//}
 
-    }
+using OtherTests.IEnumerableImplementations;
+
+var wordsCollection = new WordsCollection(
+    new[]
+    {
+        "quick", "brown", "fox"
+
+    });
+
+foreach (var word in wordsCollection)
+{
+    Console.WriteLine(word);
 }
