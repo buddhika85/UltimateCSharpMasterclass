@@ -56,16 +56,20 @@
 //    }
 //}
 
-using OtherTests.IEnumerableImplementations;
+//using OtherTests.IEnumerableImplementations;
 
-var wordsCollection = new WordsCollection(
-    new[]
-    {
-        "quick", "brown", "fox"
+//var wordsCollection = new WordsCollection(
+//    new[]
+//    {
+//        "quick", "brown", "fox"
 
-    });
+//    });
 
-foreach (var word in wordsCollection)
-{
-    Console.WriteLine(word);
-}
+//foreach (var word in wordsCollection)
+//{
+//    Console.WriteLine(word);
+//}
+
+using OtherTests.EqualityVsEquals;
+
+new Test().EqualityVsEquals();
