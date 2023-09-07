@@ -70,6 +70,13 @@
 //    Console.WriteLine(word);
 //}
 
+//using OtherTests.EqualityVsEquals;
+//new Test().EqualityVsEquals();
+
+//using OtherTests.EqualityVsEquals;
+
+//new StringCompare().Test();
+
 using OtherTests.EqualityVsEquals;
 
-new Test().EqualityVsEquals();
+new ValueTypeCompare().Test();
