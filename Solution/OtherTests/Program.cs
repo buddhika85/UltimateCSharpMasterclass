@@ -1,5 +1,4 @@
-﻿
-//var point = new Point();
+﻿//var point = new Point();
 //point.Display();
 //point.MoveRight(2);
 //point.MoveUp(4);
@@ -72,11 +71,14 @@
 
 //using OtherTests.EqualityVsEquals;
 //new Test().EqualityVsEquals();
-
 //using OtherTests.EqualityVsEquals;
-
 //new StringCompare().Test();
+//using OtherTests.EqualityVsEquals;
+//new ValueTypeCompare().Test();
 
-using OtherTests.EqualityVsEquals;
+using OtherTests.ShallowVsDeepCopy;
+using static System.Console;
 
-new ValueTypeCompare().Test();
+new TestShallowVsDeep().TestShallowCopy();
+WriteLine(Environment.NewLine);
+new TestShallowVsDeep().TestDeepCopy();
