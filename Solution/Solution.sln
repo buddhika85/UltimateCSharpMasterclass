@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRollGame", "DiceRollGam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieCookbook", "CookieCookbook\CookieCookbook.csproj", "{E1254D7E-BE15-479A-8AE6-93FFA9ACFAF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieCookbookModelAnswer", "CookieCookbookModelAnswer\CookieCookbookModelAnswer.csproj", "{A557969F-0B97-422C-B438-1A50955CE7F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieCookbookModelAnswer", "CookieCookbookModelAnswer\CookieCookbookModelAnswer.csproj", "{A557969F-0B97-422C-B438-1A50955CE7F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerializerTests", "JsonSerializer\JsonSerializerTests.csproj", "{58C2B424-5899-46D5-ACD4-24511FECC925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A557969F-0B97-422C-B438-1A50955CE7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A557969F-0B97-422C-B438-1A50955CE7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A557969F-0B97-422C-B438-1A50955CE7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C2B424-5899-46D5-ACD4-24511FECC925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C2B424-5899-46D5-ACD4-24511FECC925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C2B424-5899-46D5-ACD4-24511FECC925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C2B424-5899-46D5-ACD4-24511FECC925}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
