@@ -1,6 +1,4 @@
-﻿
-using JsonSerializerTests.Helpers;
-using JsonSerializerTests.Models;
+﻿using JsonSerializerTests.Models;
 using System.Text.Json;
 
 var person = new Person
@@ -35,7 +33,7 @@ var jsonFilePath = "D:\\buddhika\\projects\\C#Practise\\UltimateCSharpMasterclas
 var options = new JsonSerializerOptions
 {
     WriteIndented = true,
-    PropertyNamingPolicy = new LowerCaseNamingPolicy() //JsonNamingPolicy.CamelCase
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase //new LowerCaseNamingPolicy() 
 };
 
 var jsonString = JsonSerializer.Serialize<Person>(person, options);
