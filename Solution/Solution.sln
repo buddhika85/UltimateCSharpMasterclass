@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieCookbook", "CookieCoo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieCookbookModelAnswer", "CookieCookbookModelAnswer\CookieCookbookModelAnswer.csproj", "{A557969F-0B97-422C-B438-1A50955CE7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerializerTests", "JsonSerializer\JsonSerializerTests.csproj", "{58C2B424-5899-46D5-ACD4-24511FECC925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonSerializerTests", "JsonSerializer\JsonSerializerTests.csproj", "{58C2B424-5899-46D5-ACD4-24511FECC925}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonDeserializerTests", "JsonDeserializerTests\JsonDeserializerTests.csproj", "{9C7BA75C-8B3A-4FCC-A860-BDEC8A5A4632}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonDeserializerTests", "JsonDeserializerTests\JsonDeserializerTests.csproj", "{9C7BA75C-8B3A-4FCC-A860-BDEC8A5A4632}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAPI", "WeatherAPI\WeatherAPI.csproj", "{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherAPI", "WeatherAPI\WeatherAPI.csproj", "{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDataParser", "GameDataParser\GameDataParser.csproj", "{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

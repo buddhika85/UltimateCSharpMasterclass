@@ -76,9 +76,9 @@
 //using OtherTests.EqualityVsEquals;
 //new ValueTypeCompare().Test();
 
-using OtherTests.ShallowVsDeepCopy;
-using static System.Console;
+//using OtherTests.ShallowVsDeepCopy;
+//using static System.Console;
 
-new TestShallowVsDeep().TestShallowCopy();
-WriteLine(Environment.NewLine);
-new TestShallowVsDeep().TestDeepCopy();
+//new TestShallowVsDeep().TestShallowCopy();
+//WriteLine(Environment.NewLine);
+//new TestShallowVsDeep().TestDeepCopy();
