@@ -1,5 +1,5 @@
 ﻿
-namespace GameDataParserModelAnswer
+namespace GameDataParserModelAnswer.Logging
 {
     internal class Logger
     {

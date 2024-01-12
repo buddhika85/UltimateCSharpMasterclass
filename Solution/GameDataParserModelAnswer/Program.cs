@@ -1,5 +1,8 @@
-﻿using static System.Console;
- 
+﻿using GameDataParserModelAnswer.DataAccess;
+using GameDataParserModelAnswer.Logging;
+using GameDataParserModelAnswer.UserInteraction;
+using static System.Console;
+
 namespace GameDataParserModelAnswer
 {
     public class Program
@@ -24,14 +27,5 @@ namespace GameDataParserModelAnswer
             WriteLine("Press any key to close.");
             ReadKey();
         }
-    }
-
-    public class VideoGame
-    {
-        public string Title { get; init; } = null!;
-        public int ReleaseYear { get; init; }
-        public decimal Rating { get; init; }
-
-        public override string ToString() => $"{Title}, released in {ReleaseYear}, rating: {Rating}";        
     }
 }
