@@ -12,24 +12,25 @@ namespace GameDataParserModelAnswer
             string fileContent = default;
             do
             {
-                try
-                {
-                    WriteLine("Enter the name of the file you want to read:");
-                    fileName = ReadLine();
-                    fileContent = File.ReadAllText(fileName);
-                    isFileRead = true;
-                }
-                catch (ArgumentNullException e)
+                WriteLine("Enter the name of the file you want to read:");
+                fileName = ReadLine();
+                if (fileName is null)
                 {
                     WriteLine("The file name cannot be null.");
+
                 }
-                catch (ArgumentException e)
+                else if (fileName == string.Empty)
                 {
                     WriteLine("The file name cannot be empty.");
                 }
-                catch (FileNotFoundException e)
+                else if (!File.Exists(fileName))
                 {
                     WriteLine("File not found.");
+                }
+                else
+                {
+                    fileContent = File.ReadAllText(fileName);
+                    isFileRead = true;
                 }
             } while (!isFileRead);
 
