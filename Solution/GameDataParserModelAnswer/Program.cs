@@ -9,7 +9,11 @@ namespace GameDataParserModelAnswer
             var logger = new Logger("log.txt");
             try
             {
-                new GameDataParserApp().Run();
+                var consoleUserInteractor = new ConsoleUserInteractor();
+                new GameDataParserApp(consoleUserInteractor, 
+                    new GamesPrinter(consoleUserInteractor),
+                    new GamesJsonDesrializer(consoleUserInteractor),
+                    new LocalFileReader()).Run();
             }
             catch (Exception e)
             {
@@ -22,7 +26,7 @@ namespace GameDataParserModelAnswer
         }
     }
 
-    internal class VideoGame
+    public class VideoGame
     {
         public string Title { get; init; } = null!;
         public int ReleaseYear { get; init; }
