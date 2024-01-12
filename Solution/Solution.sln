@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonDeserializerTests", "Js
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherAPI", "WeatherAPI\WeatherAPI.csproj", "{B4800054-2859-4B07-A1E3-8A1BBCCF65C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDataParser", "GameDataParser\GameDataParser.csproj", "{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameDataParser", "GameDataParser\GameDataParser.csproj", "{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDataParserModelAnswer", "GameDataParserModelAnswer\GameDataParserModelAnswer.csproj", "{69C2327B-4E13-43F2-BB66-D77D53DF58F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08EB4E91-9996-4CD0-8A28-F6BE1F9ED818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C2327B-4E13-43F2-BB66-D77D53DF58F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C2327B-4E13-43F2-BB66-D77D53DF58F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C2327B-4E13-43F2-BB66-D77D53DF58F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C2327B-4E13-43F2-BB66-D77D53DF58F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
