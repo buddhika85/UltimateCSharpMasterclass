@@ -26,6 +26,11 @@ namespace GenericsTest
                 WriteLine(listOfInts);
                 //listOfInts.RemoveAt(3);
                 //listOfInts.RemoveAt(-1);
+
+                WriteLine($"{Environment.NewLine}Index {0} -> {listOfInts.GetAtIndex(0)}");
+                WriteLine($"Index {1} -> {listOfInts.GetAtIndex(1)}");
+                WriteLine($"Index {2} -> {listOfInts.GetAtIndex(2)}");
+                WriteLine($"Index {3} -> {listOfInts.GetAtIndex(3)}");
             }
             catch (Exception e)
             {
@@ -58,10 +63,7 @@ namespace GenericsTest
 
         public void RemoveAt(int index)
         {
-            if (index < 0 || index >= _size)
-            {
-                throw new IndexOutOfRangeException($"Index {index} is out of range for the list with size {_size}");
-            }
+            ValidateIndexAndThrow(index);
 
             // remove last element
             if (index == _size - 1)
@@ -77,6 +79,27 @@ namespace GenericsTest
                 _items[i - 1] = _items[i];
             }
             _items[--_size] = default;
+        }
+
+        public int GetAtIndex(int index)
+        {
+            ValidateIndexAndThrow(index);
+
+            for (int i = 0; i < _size; i++)
+            {
+                if (i == index)
+                    return _items[i];
+            }
+
+            throw new IndexOutOfRangeException($"Index {index} is out of range for the list with size {_size}");
+        }
+
+        private void ValidateIndexAndThrow(int index)
+        {
+            if (index < 0 || index >= _size)
+            {
+                throw new IndexOutOfRangeException($"Index {index} is out of range for the list with size {_size}");
+            }
         }
 
         public override string ToString()
