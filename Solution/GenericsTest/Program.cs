@@ -7,8 +7,19 @@ namespace GenericsTest
         static void Main(string[] args)
         {
             //TestListOfInts();
-            TestGenericListWithInts();
-            TestGenericListWithStrings();
+            //TestGenericListWithInts();
+            //TestGenericListWithStrings();
+
+            TestPairOfInts();
+        }
+
+        private static void TestPairOfInts()
+        {
+            Pair<int> pairOfInts = new(1, 2);
+            WriteLine($"First: {pairOfInts.First}, Second: {pairOfInts.Second}");
+            pairOfInts.ResetFirst();
+            pairOfInts.ResetSecond();
+            WriteLine($"First: {pairOfInts.First}, Second: {pairOfInts.Second}");
         }
 
         private static void TestGenericListWithStrings()
