@@ -10,7 +10,42 @@ namespace GenericsTest
             //TestGenericListWithInts();
             //TestGenericListWithStrings();
 
-            TestPairOfInts();
+            //TestPairOfInts();
+            TestTuple();
+        }
+
+        private static void TestTuple()
+        {
+            List<int> nums = new(){1, 2, 3, 4, 5};
+            var tuple = GetMinMaxTotalAvg(nums);
+            WriteLine($"min: {tuple.min}\n" +
+                $"max: {tuple.max}\n" +
+                $"total: {tuple.total}\n" +
+                $"average: {tuple.average}");
+        }
+
+        private static (int min, int max, int total, double average) GetMinMaxTotalAvg(IEnumerable<int> nums)
+        {
+            if (nums == null || !nums.Any())
+                return default;
+
+            var total = 0;
+            var min = nums.First();
+            var max = nums.First();
+            foreach (var num in nums)
+            {
+                total += num;
+                if (num < min)
+                    min = num;
+                if (num > max)
+                    max = num;
+            }
+            return (
+                min: min,
+                max: max,
+                total: total,
+                average: total / nums.Count()
+                );
         }
 
         private static void TestPairOfInts()
