@@ -2,16 +2,45 @@
 using static System.Console;
 namespace GenericsTest
 {
+    public static class ListExtensions
+    {
+        public static void AddToFront<T>(this List<T> list, T item)
+        {
+            list.Insert(0, item);
+        }
+
+        public static void Display<T>(this List<T> list)
+        {
+            if (!list.Any())
+            {
+                WriteLine("No Elements to display");
+                return;
+            }
+
+            WriteLine($"{string.Join(" | ", list)}{Environment.NewLine}");
+        }
+    }
+
     public class Program
     {
         static void Main(string[] args)
         {
+            List<string> letters = new() { "a", "B", "c" };
+            letters.Display();
+            letters.AddToFront("100");
+            letters.Display();
+
+            List<int> nums = new() { 1, 2, 3 };
+            nums.Display();
+            nums.AddToFront(0);
+            nums.Display();
+
             //TestListOfInts();
             //TestGenericListWithInts();
             //TestGenericListWithStrings();
 
             //TestPairOfInts();
-            TestTuple();
+            //TestTuple();
         }
 
         private static void TestTuple()
@@ -162,7 +191,6 @@ namespace GenericsTest
             }
         }
     }
-
 
     //class Customer{}
 
