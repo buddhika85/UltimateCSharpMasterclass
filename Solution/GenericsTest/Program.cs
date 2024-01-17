@@ -16,7 +16,7 @@ namespace GenericsTest
 
         private static void TestTuple()
         {
-            List<int> nums = new(){1, 2, 3, 4, 5};
+            List<int> nums = new() { 1, 2, 3, 4, 5 };
             var tuple = GetMinMaxTotalAvg(nums);
             WriteLine($"min: {tuple.min}\n" +
                 $"max: {tuple.max}\n" +
@@ -162,4 +162,17 @@ namespace GenericsTest
             }
         }
     }
+
+
+    //class Customer{}
+
+    //class SomeClassOne<Integer>{ }
+
+    //class SomeClassTwo<String>{ }
+
+    //class SomeClassThree<object>{ }
+
+    //class SomeClassThree<Customer> { }
+
+    //class AnotherGenericClass<T> { }
 }
