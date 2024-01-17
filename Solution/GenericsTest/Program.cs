@@ -19,6 +19,19 @@ namespace GenericsTest
 
             WriteLine($"{string.Join(" | ", list)}{Environment.NewLine}");
         }
+
+        public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> list)
+        {
+            List<TTarget> resultList = new();
+            foreach (var item in list)
+            {
+                //var result = (TTarget)item;           // does not compile
+                var result = (TTarget)Convert.ChangeType(item, typeof(TTarget));
+                resultList.Add(result);
+            }
+
+            return resultList;
+        }
     }
 
     public class Program
@@ -34,6 +47,11 @@ namespace GenericsTest
             nums.Display();
             nums.AddToFront(0);
             nums.Display();
+
+            List<decimal> decimals = new() { 1, 2.1m, 3.9m };
+            decimals.Display();
+            var result = decimals.ConvertTo<decimal, int>();
+            result.Display();
 
             //TestListOfInts();
             //TestGenericListWithInts();
