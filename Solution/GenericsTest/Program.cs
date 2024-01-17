@@ -38,20 +38,25 @@ namespace GenericsTest
     {
         static void Main(string[] args)
         {
-            List<string> letters = new() { "a", "B", "c" };
-            letters.Display();
-            letters.AddToFront("100");
-            letters.Display();
+            var result = TupleSwapExercise.SwapTupleItems<int, int>(new(1, 2));
+            WriteLine($"{result.Item2}, {result.Item1}");
+            var resultAnother = TupleSwapExercise.SwapTupleItems<string, int>(new("abcde", 2));
+            WriteLine($"{resultAnother.Item2}, {resultAnother.Item1}");
 
-            List<int> nums = new() { 1, 2, 3 };
-            nums.Display();
-            nums.AddToFront(0);
-            nums.Display();
+            //List<string> letters = new() { "a", "B", "c" };
+            //letters.Display();
+            //letters.AddToFront("100");
+            //letters.Display();
 
-            List<decimal> decimals = new() { 1, 2.1m, 3.9m };
-            decimals.Display();
-            var result = decimals.ConvertTo<decimal, int>();
-            result.Display();
+            //List<int> nums = new() { 1, 2, 3 };
+            //nums.Display();
+            //nums.AddToFront(0);
+            //nums.Display();
+
+            //List<decimal> decimals = new() { 1, 2.1m, 3.9m };
+            //decimals.Display();
+            //var result = decimals.ConvertTo<decimal, int>();
+            //result.Display();
 
             //TestListOfInts();
             //TestGenericListWithInts();
