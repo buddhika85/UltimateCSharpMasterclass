@@ -7,22 +7,24 @@ namespace GenericsTest
     {
         static void Main(string[] args)
         {
-            List<int> nums = new() { 3, 2, 1, 4 };
-            nums.Sort();
-            nums.Display();
+            new SortingExcercise();
 
-            List<string> letters = new() { "d", "c", "b", "a" };
-            letters.Sort();
-            letters.Display();
+            //List<int> nums = new() { 3, 2, 1, 4 };
+            //nums.Sort();
+            //nums.Display();
 
-            List<Person> persons = new()
-            {
-                new Person { Name = "Bob Smith", DateOfBirth = new DateTime(1985, 05, 06)},
-                new Person { Name = "Anne Smith", DateOfBirth = new DateTime(1989, 01, 06)},
-                new Person { Name = "James Gunn", DateOfBirth = new DateTime(1965, 01, 06)},
-            };
-            persons.Sort();
-            persons.Display();
+            //List<string> letters = new() { "d", "c", "b", "a" };
+            //letters.Sort();
+            //letters.Display();
+
+            //List<Person> persons = new()
+            //{
+            //    new Person { Name = "Bob Smith", DateOfBirth = new DateTime(1985, 05, 06)},
+            //    new Person { Name = "Anne Smith", DateOfBirth = new DateTime(1989, 01, 06)},
+            //    new Person { Name = "James Gunn", DateOfBirth = new DateTime(1965, 01, 06)},
+            //};
+            //persons.Sort();
+            //persons.Display();
 
 
             //var result = TupleSwapExercise.SwapTupleItems<int, int>(new(1, 2));
