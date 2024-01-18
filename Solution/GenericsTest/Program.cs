@@ -2,46 +2,33 @@
 using static System.Console;
 namespace GenericsTest
 {
-    public static class ListExtensions
-    {
-        public static void AddToFront<T>(this List<T> list, T item)
-        {
-            list.Insert(0, item);
-        }
-
-        public static void Display<T>(this List<T> list)
-        {
-            if (!list.Any())
-            {
-                WriteLine("No Elements to display");
-                return;
-            }
-
-            WriteLine($"{string.Join(" | ", list)}{Environment.NewLine}");
-        }
-
-        public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> list)
-        {
-            List<TTarget> resultList = new();
-            foreach (var item in list)
-            {
-                //var result = (TTarget)item;           // does not compile
-                var result = (TTarget)Convert.ChangeType(item, typeof(TTarget));
-                resultList.Add(result);
-            }
-
-            return resultList;
-        }
-    }
 
     public class Program
     {
         static void Main(string[] args)
         {
-            var result = TupleSwapExercise.SwapTupleItems<int, int>(new(1, 2));
-            WriteLine($"{result.Item2}, {result.Item1}");
-            var resultAnother = TupleSwapExercise.SwapTupleItems<string, int>(new("abcde", 2));
-            WriteLine($"{resultAnother.Item2}, {resultAnother.Item1}");
+            List<int> nums = new() { 3, 2, 1, 4 };
+            nums.Sort();
+            nums.Display();
+
+            List<string> letters = new() { "d", "c", "b", "a" };
+            letters.Sort();
+            letters.Display();
+
+            List<Person> persons = new()
+            {
+                new Person { Name = "Bob Smith", DateOfBirth = new DateTime(1985, 05, 06)},
+                new Person { Name = "Anne Smith", DateOfBirth = new DateTime(1989, 01, 06)},
+                new Person { Name = "James Gunn", DateOfBirth = new DateTime(1965, 01, 06)},
+            };
+            persons.Sort();
+            persons.Display();
+
+
+            //var result = TupleSwapExercise.SwapTupleItems<int, int>(new(1, 2));
+            //WriteLine($"{result.Item2}, {result.Item1}");
+            //var resultAnother = TupleSwapExercise.SwapTupleItems<string, int>(new("abcde", 2));
+            //WriteLine($"{resultAnother.Item2}, {resultAnother.Item1}");
 
             //List<string> letters = new() { "a", "B", "c" };
             //letters.Display();
