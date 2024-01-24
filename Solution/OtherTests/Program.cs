@@ -82,3 +82,7 @@
 //new TestShallowVsDeep().TestShallowCopy();
 //WriteLine(Environment.NewLine);
 //new TestShallowVsDeep().TestDeepCopy();
+
+using OtherTests;
+
+new ConstVsReadOnlyTesting();
