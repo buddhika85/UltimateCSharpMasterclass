@@ -1,3 +1,5 @@
-﻿using DesignPatterns;
+﻿using DesignPatterns.Builder;
 
-SingletonDemo.Demo();
+//SingletonDemo.Demo();
+
+BuilderDemo.Demo();
