@@ -1,5 +1,7 @@
-﻿using DesignPatterns.Builder;
+﻿//SingletonDemo.Demo();
 
-//SingletonDemo.Demo();
+//BuilderDemo.Demo();
 
-BuilderDemo.Demo();
+using DesignPatterns.Adapter;
+
+AdapterDemo.Test();
