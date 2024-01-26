@@ -2,6 +2,8 @@
 
 //BuilderDemo.Demo();
 
-using DesignPatterns.Adapter;
+//AdapterDemo.Test();
 
-AdapterDemo.Test();
+using DesignPatterns.Bridge;
+
+BridgeDemo.Demo();
