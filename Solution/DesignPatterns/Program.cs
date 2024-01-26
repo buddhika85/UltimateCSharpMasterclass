@@ -4,6 +4,8 @@
 
 //AdapterDemo.Test();
 
-using DesignPatterns.Bridge;
+//BridgeDemo.Demo();
 
-BridgeDemo.Demo();
+using DesignPatterns.StaticFactoryMethod;
+
+StaticFactoryMethodDemo.Demo();

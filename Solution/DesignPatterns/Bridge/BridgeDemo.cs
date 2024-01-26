@@ -7,7 +7,6 @@ namespace DesignPatterns.Bridge
         public override string ToString() => "Motor";
     }
 
-
     public class ElectricMotor : Motor
     {
         public override string ToString() => $"Electric {base.ToString()}";
