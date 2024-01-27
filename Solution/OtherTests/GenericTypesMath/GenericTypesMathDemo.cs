@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+﻿using System.Numerics;      // Generic Math 
 using static System.Console;
 
 namespace OtherTests.GenericTypesMath
