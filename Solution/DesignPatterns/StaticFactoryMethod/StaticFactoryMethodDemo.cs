@@ -33,6 +33,7 @@ namespace DesignPatterns.StaticFactoryMethod
         {
             return new BankAccount(false);
         }
-        public override string ToString() => $"BankAccount with {_maxWithdrawLimit} withdraw limit";
+        public override string ToString() =>
+            $"BankAccount with {_maxWithdrawLimit} withdraw limit";
     }
 }

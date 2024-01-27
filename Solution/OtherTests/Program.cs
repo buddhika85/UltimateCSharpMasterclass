@@ -83,8 +83,11 @@
 //WriteLine(Environment.NewLine);
 //new TestShallowVsDeep().TestDeepCopy();
 
-using OtherTests;
-
 //new ConstVsReadOnlyTesting();
 
-new RefKeywordDemo();
+//new RefKeywordDemo();
+
+
+using OtherTests.GenericTypesMath;
+
+GenericTypesMathDemo.Demo();
