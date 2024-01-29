@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameDataParserModelAnswer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericsTest", "GenericsTest\GenericsTest.csproj", "{92B028E0-E1AD-41FF-B6EB-9415DA62211F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{CF032C47-5AA1-423F-A71E-2BC063BFA028}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{CF032C47-5AA1-423F-A71E-2BC063BFA028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_Demo", "SOLID_Demo\SOLID_Demo.csproj", "{B1A4C44C-D706-4F7A-8485-96763F2BAF98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{CF032C47-5AA1-423F-A71E-2BC063BFA028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF032C47-5AA1-423F-A71E-2BC063BFA028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF032C47-5AA1-423F-A71E-2BC063BFA028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A4C44C-D706-4F7A-8485-96763F2BAF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A4C44C-D706-4F7A-8485-96763F2BAF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A4C44C-D706-4F7A-8485-96763F2BAF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A4C44C-D706-4F7A-8485-96763F2BAF98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
