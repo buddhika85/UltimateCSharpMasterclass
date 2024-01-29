@@ -22,12 +22,12 @@
 
      */
 
-    public class PeopleInformationPrinter
+    public class PeopleInformationPrinterSrpViolated
     {
         private readonly string _connectionString;
         private readonly string _resultFilePath;
 
-        public PeopleInformationPrinter(string connectionString, string resultFilePath)
+        public PeopleInformationPrinterSrpViolated(string connectionString, string resultFilePath)
         {
             _connectionString = connectionString;
             _resultFilePath = resultFilePath;
