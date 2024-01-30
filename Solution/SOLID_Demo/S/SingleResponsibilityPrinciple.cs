@@ -69,7 +69,9 @@
         private readonly IPeopleTextFormatter _peopleTextFormatter;
         private readonly IWriter<Person> _personTextWriter;
 
-        public PeopleInformationPrinter(IReader<Person> personDatabaseReader, IPeopleTextFormatter peopleTextFormatter, IWriter<Person> personTextWriter)
+        public PeopleInformationPrinter(IReader<Person> personDatabaseReader,
+            IPeopleTextFormatter peopleTextFormatter,
+            IWriter<Person> personTextWriter)
         {
             _personDatabaseReader = personDatabaseReader;
             _peopleTextFormatter = peopleTextFormatter;
