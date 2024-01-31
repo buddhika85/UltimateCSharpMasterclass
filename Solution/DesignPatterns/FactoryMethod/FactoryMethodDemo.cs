@@ -14,24 +14,38 @@
         }
 
         public void AddIngredient(string ingredient)
-        {
-            Ingredients.Add(ingredient);
-        }
+            => Ingredients.Add(ingredient);
     }
 
     public class VanillaIceCream : IceCream
     {
-        private static readonly List<string> DefaultIngredients =
+        public static readonly List<string> DefaultIngredients =
             new() { "Cream", "Sugar", "Vanilla" };
 
         public VanillaIceCream() : base(DefaultIngredients) { }
+    }
+
+    public class ChocolateIceCream : IceCream
+    {
+        public static readonly List<string> DefaultIngredients =
+            new() { "Cream", "Sugar", "Chocolate" };
+
+        public ChocolateIceCream() : base(DefaultIngredients) { }
+    }
+
+    public interface IIceCreamFactory
+    {
+        public IceCream? Prepare(List<string> ingredients);
     }
 
     public class IceCreamFactory
     {
         public IceCream? Prepare(List<string> ingredients)
         {
-            //if (Enumerable.SequenceEqual(ingredients, ));
+            if (Enumerable.SequenceEqual(ingredients, VanillaIceCream.DefaultIngredients))
+                return new VanillaIceCream();
+            if (Enumerable.SequenceEqual(ingredients, ChocolateIceCream.DefaultIngredients))
+                return new ChocolateIceCream();
             return null;
         }
     }
