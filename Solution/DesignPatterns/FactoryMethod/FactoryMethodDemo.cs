@@ -2,6 +2,15 @@
 {
     public class FactoryMethodDemo
     {
+        private readonly IIceCreamFactory _iceCreamFactory;
+        public FactoryMethodDemo(IIceCreamFactory iceCreamFactory)
+        {
+            _iceCreamFactory = iceCreamFactory;
+        }
+        public IceCream? GetIceCreamForCustomer(List<string> customerAsked)
+        {
+            return _iceCreamFactory.Prepare(customerAsked);
+        }
     }
 
     public abstract class IceCream
