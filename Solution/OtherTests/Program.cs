@@ -87,7 +87,8 @@
 
 //new RefKeywordDemo();
 
+//GenericTypesMathDemo.Demo();
 
-using OtherTests.GenericTypesMath;
+using OtherTests.FuncsAndActions;
 
-GenericTypesMathDemo.Demo();
+new FuncDemo().Demo();
