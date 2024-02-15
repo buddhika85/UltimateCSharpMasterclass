@@ -89,6 +89,10 @@
 
 //GenericTypesMathDemo.Demo();
 
-using OtherTests.FuncsAndActions;
+//using OtherTests.FuncsAndActions;
 
-new FuncDemo().Demo();
+//new FuncDemo().Demo();
+
+using OtherTests.LambdaExpressions;
+
+new LambdaDemo().Demo();
