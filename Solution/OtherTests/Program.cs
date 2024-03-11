@@ -93,6 +93,22 @@
 
 //new FuncDemo().Demo();
 
-using OtherTests.LambdaExpressions;
+//using OtherTests.LambdaExpressions;
 
-new LambdaDemo().Demo();
+//new LambdaDemo().Demo();
+
+using OtherTests.IEnumerableTest;
+using static System.Console;
+
+var words = new WordsCollection("quick", "brown", "fox");
+foreach (var word in words)
+{
+    WriteLine(word);
+}
+
+words.Add("jumped"); words.Add("over"); words.Add("the"); words.Add("fence");
+
+foreach (var word in words)
+{
+    WriteLine(word);
+}
