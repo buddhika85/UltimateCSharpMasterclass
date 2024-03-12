@@ -97,18 +97,18 @@
 
 //new LambdaDemo().Demo();
 
-using OtherTests.IEnumerableTest;
-using static System.Console;
+//using OtherTests.IEnumerableTest;
+//using static System.Console;
 
-var words = new WordsCollection("quick", "brown", "fox");
-foreach (var word in words)
-{
-    WriteLine(word);
-}
+//var words = new WordsCollection("quick", "brown", "fox");
+//foreach (var word in words)
+//{
+//    WriteLine(word);
+//}
 
-words.Add("jumped"); words.Add("over"); words.Add("the"); words.Add("fence");
+//words.Add("jumped"); words.Add("over"); words.Add("the"); words.Add("fence");
 
-foreach (var word in words)
-{
-    WriteLine(word);
-}
+//foreach (var word in words)
+//{
+//    WriteLine(word);
+//}
