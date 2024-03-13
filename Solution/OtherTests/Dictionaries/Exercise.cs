@@ -7,8 +7,8 @@
             Dictionary<PetType, double> result = new Dictionary<PetType, double>();
             foreach (var pet in pets)
             {
-                if (result.ContainsKey(pet.PetType) && result[pet.PetType] < pet.Weight)
-                    result[pet.PetType] = pet.Weight;
+                if (result.ContainsKey(pet.PetType))                    
+                    result[pet.PetType] = result[pet.PetType] < pet.Weight ? pet.Weight : result[pet.PetType];
                 else
                     result.Add(pet.PetType, pet.Weight);                
             }
