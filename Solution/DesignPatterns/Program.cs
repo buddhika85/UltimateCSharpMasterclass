@@ -23,7 +23,9 @@ NumberFilter numberFilter = new();
 WriteLine(nums.DisplayableList());
 FilteringStrategySelector filteringStrategySelector = new ();
 
-WriteLine(numberFilter.Filter(filteringStrategySelector.Select(FilterBy.Positive), nums).DisplayableList());
+WriteLine(numberFilter.Filter(
+        filteringStrategySelector.Select(FilterBy.Positive),        // select strategy
+        nums).DisplayableList());
 WriteLine(numberFilter.Filter(filteringStrategySelector.Select(FilterBy.Odd), nums).DisplayableList());
 WriteLine(numberFilter.Filter(filteringStrategySelector.Select(FilterBy.Even), nums).DisplayableList());
 
