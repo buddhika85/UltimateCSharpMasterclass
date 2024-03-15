@@ -1,4 +1,7 @@
-﻿//var point = new Point();
+﻿using OtherTests.FuncsAndActions.Practise;
+using static System.Console;
+
+//var point = new Point();
 //point.Display();
 //point.MoveRight(2);
 //point.MoveUp(4);
@@ -98,7 +101,7 @@
 //new LambdaDemo().Demo();
 
 //using OtherTests.IEnumerableTest;
-//using static System.Console;
+
 
 //var words = new WordsCollection("quick", "brown", "fox");
 //foreach (var word in words)
@@ -112,3 +115,21 @@
 //{
 //    WriteLine(word);
 //}
+
+
+List<int> nums = new() { 10, -9, -20, 0, 5, 2, 10, 8, -7, 24, 12, 20 };
+NumberFilter numberFilter = new();
+
+WriteLine(nums.DisplayableList());
+WriteLine(numberFilter.Filter(FilterBy.Even, nums).DisplayableList());
+WriteLine(numberFilter.Filter(FilterBy.Odd, nums).DisplayableList());
+WriteLine(numberFilter.Filter(FilterBy.Positive, nums).DisplayableList());
+
+
+public static class IEnumerableExtensions
+{
+    public static string DisplayableList(this IEnumerable<int> list, string delimter = ", ")
+    {
+        return string.Join(delimter, list);
+    }
+}
