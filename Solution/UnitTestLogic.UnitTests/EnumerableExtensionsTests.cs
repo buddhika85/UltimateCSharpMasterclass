@@ -38,5 +38,29 @@ namespace UnitTestLogic.UnitTests
             // assert
             Assert.That(actual, Is.EqualTo(evenSum));
         }
+
+        [Test]
+        [TestCaseSource(nameof(GetNegativeTestCases))]
+        public void SumOfEvenNumbers_ReturnsEvenSum_WhenNegativeInputs(IEnumerable<int> numbers, int expected) 
+        {
+            // arrange
+            // act
+            int actual = numbers.SumOfEvenNumbers();
+
+            // assert
+            Assert.That(actual.Equals(expected));
+        }
+
+        // returns a collection of test cases
+        private static IEnumerable<object> GetNegativeTestCases()
+        {
+            return new[] 
+            {
+                new object[] { new int[] { -1, -2, -3 }, -2 },
+                new object[] { new int[] { -1, -2, -3, -4 }, -6 },
+                new object[] { new int[] { -1, -2, 2, -3, -4 }, -4 },
+                new object[] { new int[] { -1,  -3, }, 0 },
+            };
+        }
     }
 }
