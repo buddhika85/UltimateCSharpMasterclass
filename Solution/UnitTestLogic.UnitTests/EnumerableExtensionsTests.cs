@@ -62,5 +62,15 @@ namespace UnitTestLogic.UnitTests
                 new object[] { new int[] { -1,  -3, }, 0 },
             };
         }
+
+        [Test]
+        public void SumOfEvenNumbers_ThrowsNullException_ToNullInput()
+        {
+            // arrange 
+            IEnumerable<int> numbers = null;
+            // act
+            // assert
+            Assert.Throws<ArgumentNullException>(() => numbers!.SumOfEvenNumbers());
+        }
     }
 }
