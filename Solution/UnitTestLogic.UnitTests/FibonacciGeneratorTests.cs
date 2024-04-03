@@ -1,6 +1,4 @@
-﻿using NUnit.Framework.Legacy;
-
-namespace UnitTestLogic.UnitTests
+﻿namespace UnitTestLogic.UnitTests
 {
     [TestFixture]
     public class FibonacciGeneratorTests
@@ -61,7 +59,7 @@ namespace UnitTestLogic.UnitTests
         {
             // arrange             
             // act
-            var actual = _fibonacciGenerator.FibSequence(4);
+            var actual = _fibonacciGenerator.FibSequence(count);
             // assert   
             Assert.That(actual, Is.TypeOf<List<int>>());
         }
