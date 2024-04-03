@@ -70,7 +70,12 @@ namespace UnitTestLogic.UnitTests
             IEnumerable<int> numbers = null;
             // act
             // assert
-            Assert.Throws<ArgumentNullException>(() => numbers!.SumOfEvenNumbers());
+            Assert.Throws<ArgumentNullException>(() => 
+                numbers!.SumOfEvenNumbers());
+
+            // Assert.DoesNotThrow(() => numbers!.SumOfEvenNumbers());
+
+           
         }
     }
 }
