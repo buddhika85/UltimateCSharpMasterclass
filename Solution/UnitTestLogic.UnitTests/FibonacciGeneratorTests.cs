@@ -101,5 +101,23 @@
         }
 
         // write some test cases to test valid long fibonacci sequences
+        [Test]
+        [TestCase(0, new int[0] { })]
+        [TestCase(1, new int[1] { 0 })]
+        [TestCase(2, new int[2] { 0, 1 })]
+        [TestCase(3, new int[3] { 0, 1, 1 })]
+        [TestCase(4, new int[4] { 0, 1, 1, 2 })]
+        [TestCase(5, new int[5] { 0, 1, 1, 2, 3 })]
+        [TestCase(6, new int[6] { 0, 1, 1, 2, 3, 5 })]
+        [TestCase(7, new int[7] { 0, 1, 1, 2, 3, 5, 8 })]
+        public void FibSequence_ReturnsValidSequence_DifferentInputs(int count, int[] extepectedSequence)
+        {
+            // arrange
+            // act
+            var actual = _fibonacciGenerator.FibSequence(count);
+
+            // assert
+            Assert.That(actual, Is.EquivalentTo(extepectedSequence));
+        }
     }
 }
