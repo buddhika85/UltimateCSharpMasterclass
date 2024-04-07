@@ -110,6 +110,7 @@
         [TestCase(5, new int[5] { 0, 1, 1, 2, 3 })]
         [TestCase(6, new int[6] { 0, 1, 1, 2, 3, 5 })]
         [TestCase(7, new int[7] { 0, 1, 1, 2, 3, 5, 8 })]
+        [TestCase(8, new int[8] { 0, 1, 1, 2, 3, 5, 8, 13 })]
         public void FibSequence_ReturnsValidSequence_DifferentInputs(int count, int[] extepectedSequence)
         {
             // arrange
