@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID_Demo", "SOLID_Demo\SOLID_Demo.csproj", "{B1A4C44C-D706-4F7A-8485-96763F2BAF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLogic", "UnitTestLogic\UnitTestLogic.csproj", "{3FD5BB02-EB31-4D23-9981-0F6F9A2C8248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestLogic", "UnitTestLogic\UnitTestLogic.csproj", "{3FD5BB02-EB31-4D23-9981-0F6F9A2C8248}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLogic.UnitTests", "UnitTestLogic.UnitTests\UnitTestLogic.UnitTests.csproj", "{A597B941-CEA6-4AA3-AB92-D466199AE395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestLogic.UnitTests", "UnitTestLogic.UnitTests\UnitTestLogic.UnitTests.csproj", "{A597B941-CEA6-4AA3-AB92-D466199AE395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{A597B941-CEA6-4AA3-AB92-D466199AE395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A597B941-CEA6-4AA3-AB92-D466199AE395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A597B941-CEA6-4AA3-AB92-D466199AE395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
