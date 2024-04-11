@@ -40,5 +40,10 @@ namespace LINQ
         {
             return dates.Where(x => x.Year == year && x.DayOfWeek == DayOfWeek.Friday).Distinct();
         }
+
+        public static double CalculateAverageDurationInMilliseconds(IEnumerable<TimeSpan> timeSpans)
+        {
+            return timeSpans.Average(x => x.Milliseconds);
+        }
     }
 }
