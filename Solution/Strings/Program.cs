@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 using static System.Console;
 
@@ -11,7 +12,22 @@ namespace Strings
             //CharLoopDemo();
             //StringVsStringBuilder();
 
-            WriteLine(Reverse("Hello"));
+            //WriteLine(Reverse("Hello"));
+            DemoCultures();
+        }
+
+        private static void DemoCultures()
+        {
+            var number = 1.9999m;
+            var date = DateTime.Now;
+
+            WriteLine(CultureInfo.CurrentCulture);
+            WriteLine($"\t{date} \n\t{number}");
+
+            // setting cultuture to pl-PL - Polish - Poland
+            CultureInfo.CurrentCulture = new CultureInfo("pl-PL");
+            WriteLine(CultureInfo.CurrentCulture);
+            WriteLine($"\n\t{date} \n\t{number}");
         }
 
         private static void StringVsStringBuilder()
@@ -57,5 +73,7 @@ namespace Strings
             }
             return sb.ToString();
         }
+
+
     }
 }
