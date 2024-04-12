@@ -13,7 +13,23 @@ namespace Strings
             //StringVsStringBuilder();
 
             //WriteLine(Reverse("Hello"));
-            DemoCultures();
+            //DemoCultures();
+
+            try
+            {
+                //GetFibonacci(-1);
+                GetFibonacci(48);
+            }
+            catch (Exception e)
+            {
+                WriteLine(e.Message);
+            }
+
+            WriteLine($"{string.Join(", " ,GetFibonacci(0))}");
+            WriteLine($"{string.Join(", ", GetFibonacci(1))}");
+            WriteLine($"{string.Join(", ", GetFibonacci(2))}");
+            WriteLine($"{string.Join(", ", GetFibonacci(10))}");
+            WriteLine($"{string.Join(", ", GetFibonacci(47))}");
         }
 
         private static void DemoCultures()
@@ -74,6 +90,22 @@ namespace Strings
             return sb.ToString();
         }
 
+        public static IEnumerable<int> GetFibonacci(int n)
+        {
+            const int Min = 0;
+            const int Max = 47;
+            if (n < Min || n > Max)
+                throw new ArgumentOutOfRangeException($"Valid inclusive range for input {Min} to {Max}");
 
+            List<int> fibs = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                if (i == 0 || i == 1)
+                    fibs.Add(i);
+                else
+                    fibs.Add(fibs[i-1] + fibs[i-2]);
+            }
+            return fibs;            
+        }
     }
 }
