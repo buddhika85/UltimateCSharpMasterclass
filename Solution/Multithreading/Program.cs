@@ -9,7 +9,9 @@ namespace Multithreading
             WriteLine($"\nCores count: {Environment.ProcessorCount}");
 
             //SingleThreadedExample();
-            MultiThreadedExample();
+            //MultiThreadedExample();
+
+            Exercise_1.RunThreads();
             ReadKey();
         }
 
