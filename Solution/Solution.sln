@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestLogic.UnitTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ\LINQ.csproj", "{2E8EA117-45EC-4CAC-B5DF-A39ECE92152D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strings", "Strings\Strings.csproj", "{38FF086D-89D2-4DB5-8744-A066F8AF65B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strings", "Strings\Strings.csproj", "{38FF086D-89D2-4DB5-8744-A066F8AF65B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Multithreading\Multithreading.csproj", "{8A9A771A-C09A-4EB4-9E47-6AC118E5652E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{38FF086D-89D2-4DB5-8744-A066F8AF65B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38FF086D-89D2-4DB5-8744-A066F8AF65B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38FF086D-89D2-4DB5-8744-A066F8AF65B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A9A771A-C09A-4EB4-9E47-6AC118E5652E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A9A771A-C09A-4EB4-9E47-6AC118E5652E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A9A771A-C09A-4EB4-9E47-6AC118E5652E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A9A771A-C09A-4EB4-9E47-6AC118E5652E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
