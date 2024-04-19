@@ -21,6 +21,8 @@ namespace Multithreading
             // still the threads are not started
             thread1.Start();
             thread2.Start();
+
+            Write("Program finished!!");
         }
 
         private static void SingleThreadedExample()
