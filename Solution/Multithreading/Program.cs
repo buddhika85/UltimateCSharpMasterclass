@@ -6,12 +6,15 @@ namespace Multithreading
     {
         static void Main(string[] args)
         {
-            WriteLine($"\nCores count: {Environment.ProcessorCount}");
+            //WriteLine($"\nCores count: {Environment.ProcessorCount}");
 
             //SingleThreadedExample();
             //MultiThreadedExample();
 
-            Exercise_1.RunThreads();
+            //Exercise_1.RunThreads();
+
+            ThreadPoolDemo.Start100Threads();
+            ThreadPoolDemo.UseThreadPool();
             ReadKey();
         }
 
