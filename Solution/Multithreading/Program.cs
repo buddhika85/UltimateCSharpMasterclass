@@ -34,11 +34,14 @@ namespace Multithreading
             }
             else
             {
-                Task task1 = new Task(() => PrintPluses(200));
-                Task task2 = new Task(() => PrintMinuses(200));
+                //Task task1 = new Task(() => PrintPluses(200));
+                //Task task2 = new Task(() => PrintMinuses(200));
 
-                task1.Start();
-                task2.Start();
+                //task1.Start();
+                //task2.Start();
+
+                Task task1 = Task.Run(() => PrintPluses(200));
+                Task task2 = Task.Run(() => PrintMinuses(200));
             }
 
             Write("Program finished!!");
