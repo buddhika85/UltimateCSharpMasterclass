@@ -9,26 +9,42 @@ namespace Multithreading
             //WriteLine($"\nCores count: {Environment.ProcessorCount}");
 
             //SingleThreadedExample();
-            //MultiThreadedExample();
+            bool useTasks = true;
+            MultiThreadedOrTasksExample(useTasks);
 
             //Exercise_1.RunThreads();
 
-            ThreadPoolDemo.Start100Threads();
-            ThreadPoolDemo.UseThreadPool();
+            //ThreadPoolDemo.Start100Threads();
+            //ThreadPoolDemo.UseThreadPool();
+
+
             ReadKey();
         }
 
-        private static void MultiThreadedExample()
+        private static void MultiThreadedOrTasksExample(bool useTasks)
         {
-            Thread thread1 = new Thread(() => PrintPluses(300) );
-            Thread thread2 = new Thread(() => PrintMinuses(300) );            
+            if (!useTasks)
+            {
+                Thread thread1 = new Thread(() => PrintPluses(300));
+                Thread thread2 = new Thread(() => PrintMinuses(300));
 
-            // still the threads are not started
-            thread1.Start();
-            thread2.Start();
+                // still the threads are not started
+                thread1.Start();
+                thread2.Start();               
+            }
+            else
+            {
+                Task task1 = new Task(() => PrintPluses(200));
+                Task task2 = new Task(() => PrintMinuses(200));
+
+                task1.Start();
+                task2.Start();
+            }
 
             Write("Program finished!!");
         }
+
+
 
         private static void SingleThreadedExample()
         {
