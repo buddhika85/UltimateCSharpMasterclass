@@ -9,14 +9,15 @@ namespace Multithreading
             //WriteLine($"\nCores count: {Environment.ProcessorCount}");
 
             //SingleThreadedExample();
-            bool useTasks = true;
-            MultiThreadedOrTasksExample(useTasks);
+            //bool useTasks = true;
+            //MultiThreadedOrTasksExample(useTasks);
 
             //Exercise_1.RunThreads();
 
             //ThreadPoolDemo.Start100Threads();
             //ThreadPoolDemo.UseThreadPool();
 
+            TasksDemo.Demo();
 
             ReadKey();
         }
